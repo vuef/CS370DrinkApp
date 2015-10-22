@@ -32,6 +32,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mycrosoft.drinkapp.Main" />
         </activity>
+        <activity
+            android:name=".WhatCanIMakeActivity"
+            android:label="@string/title_activity_what_can_imake"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mycrosoft.drinkapp.Main" />
+        </activity>
     </application>
 
 </manifest>

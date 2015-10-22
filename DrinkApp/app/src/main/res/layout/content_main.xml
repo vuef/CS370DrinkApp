@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main" tools:context=".Main">
-    <EditText android:id="@+id/edit_message"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:hint="@string/edit_message"
-    />
+<!-- This XML File creates the Main Activity. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/InnerRelativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginTop="10dp"
+    android:paddingTop="55dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
+
+    <!-- Main Search Box -->
+    <EditText
+        android:id="@+id/edit_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/bt_sent_msg"
+        android:hint="@string/edit_message" />
+    <!-- Main Search Button -->
+    <Button
+        android:text="Search"
+        android:id="@+id/bt_sent_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:onClick="search"/>
+    <!-- "What Can I Make? "Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        android:onClick="search"
-        />
+        android:text="What Can I Make?"
+        android:id="@+id/button"
+        android:layout_below="@+id/bt_sent_msg"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="whatCanIMake"/>
 
-</LinearLayout>
+</RelativeLayout>
