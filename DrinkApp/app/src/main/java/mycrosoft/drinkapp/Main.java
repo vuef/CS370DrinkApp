@@ -55,5 +55,11 @@ public class Main extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+    /** Opens the "What Can I Make?" view and displays "NOTHING". Called when the user clicks the "What Can I make?" button **/
+    public void whatCanIMake(View view){
+        Intent intent = new Intent(this,WhatCanIMakeActivity.class);
+        //intent.putExtra(EXTRA_MESSAGE, "NOTHING!");
+        startActivity(intent);
+    }
 
 }
