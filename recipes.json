@@ -1,0 +1,24 @@
+[
+	{
+		"title":"Alexi's Spicy Bloody Mary"
+		ingredients":" Absolut vodka, Worcestershire sauce, Tabasco® sauce, pickle juice, olive juice, tomato juice, salt, pepper, celery salt"
+		"directions":"Add vodka, sauces, pickle juice and brine to a mug full of ice. Fill with tomato juice. Add salt, pepper and celery salt to taste. Pour mixture back and fourth between two glasses to mix it well. Garnish with olives, a pickle and a slice of lime."
+
+	{	
+		"title":"Adios Motherfucker"
+		"ingredients":"vodka,rum,tequila,gin,Blue Curacao liqeur,sweet and sour mix,7-Up soda"
+		"directions":"Pour all ingredients except the 7-Up into a chilled glass filled with ice cubes. Top with 7-Up and stir gently."
+	},
+
+	{
+		"title":"Latin Dream"
+		"ingredients":"apricot brandy,Cointreau orange liqueur, orange juice, vanilla ice cream"
+		"directions":"Shake all ingredients together, without ice, and pour into glass. Garnish with a slice of orange. Enjoy!"
+	},
+
+	{
+		"title":"Old Fashioned"
+		"ingredients":"bourbon whiskey,Angostura bitters,water,sugar,maraschino cherry,orange wedge"
+		"directions":"Mix sugar, water and angostura bitters in an old-fashioned glass. Drop in a cherry and an orange wedge. Muddle into a paste using a muddler or the back end of a spoon. Pour in bourbon, fill with ice cubes, and stir."
+	}
+]
