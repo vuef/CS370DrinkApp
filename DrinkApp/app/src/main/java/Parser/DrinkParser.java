@@ -1,16 +1,15 @@
 package Parser;
 
-import Model.DrinkModel;
-import com.google.gson.Gson;
+import android.net.Uri;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-/**
- * Created by student on 10/26/15.
- */
+import Model.DrinkModel;
+
+//
 public class DrinkParser {
     // Converts a JSON string to a RecipeModel
     static public DrinkModel JSONtoModel(String input){
@@ -21,13 +20,16 @@ public class DrinkParser {
             JSONArray array = json.getJSONArray("results");
             JSONObject recipe = array.getJSONObject(0);
 
-            Gson gson = new Gson();
-            model = (DrinkModel)gson.fromJson(recipe.toString(), DrinkModel.class);
-
+            model.setName((String)recipe.get("name"));
+            model.setIngredients((String) recipe.get("ingredients"));
+            model.setRecipeUri(Uri.parse(((String) recipe.get("thumb"))));
+            model.setID((String) recipe.get("id"));
+            model.setThumb((String) recipe.get("thumb"));
+            model.setImage((String) recipe.get("image"));
         }catch(JSONException exception){
             exception.getCause();
         }
 
         return model;
-}
+    }
 }
