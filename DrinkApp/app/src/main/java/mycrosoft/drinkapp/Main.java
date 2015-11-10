@@ -1,24 +1,92 @@
 package mycrosoft.drinkapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import org.parceler.Parcels;
+
+import Define.AppDefines;
+import adapters.RecipeListAdapter;
+import models.DrinkSearchItemModel;
+import models.DrinkSearchResultModel;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import services.APIClient;
 
 
+public class Main extends Activity {//AppCompatActivity {
+    private ListView searchResultsList;
+    private Button searchButton;
+    private EditText searchInput;
 
-public class Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        searchResultsList = (ListView)findViewById(R.id.Drinks);
+        searchButton = (Button)findViewById(R.id.searchButton);
+        searchInput = (EditText)findViewById(R.id.searchText);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                APIClient.getRecipeProvider()
+                        .getRecipesByIngredient(searchInput.getText().toString())
+                        .subscribeOn(Schedulers.newThread())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Subscriber<DrinkSearchResultModel>() {
+
+                            @Override
+                            public void onCompleted() {
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                int i = 0;
+                            }
+
+                            @Override
+                            public void onNext(DrinkSearchResultModel searchResultModel) {
+                                searchResultsList.setAdapter(new RecipeListAdapter(Main.this, searchResultModel.drinks));
+                            }
+                        });
+
+            }
+        });// An on-click listener for the items in the recipeListView
+
+        searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            // When the recipe item is clicked, the following code is executed
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Create an intent to contain the relevant recipe item data and to specify the activity to load
+                Intent drinkIntent = new Intent(Main.this, DrinkActivity.class);
+                // Wrap up the RecipeSearchItemModel using Parcels (arnother Gradle dependency)
+                drinkIntent.putExtra(AppDefines.DRINK_INTENT_KEY, Parcels.wrap((DrinkSearchItemModel) parent.getItemAtPosition(position)));
+                // Start the intended activity using the intent
+                startActivity(drinkIntent);
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -35,22 +103,15 @@ public class Main extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public final static String EXTRA_MESSAGE = "com.mycrosoft.drinkapp.MESSAGE";
-
-    /** Called when the user clicks the Search button */
-    public void search(View view){
-        Intent intent = new Intent(this,DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
-    /** Opens the "What Can I Make?" view and displays "NOTHING". Called when the user clicks the "What Can I make?" button **/
+}
+/*
+    // Opens the "What Can I Make?" view and displays "NOTHING". Called when the user clicks the "What Can I make?" button
     public void whatCanIMake(View view){
         Intent intent = new Intent(this,WhatCanIMakeActivity.class);
         //intent.putExtra(EXTRA_MESSAGE, "NOTHING!");
         startActivity(intent);
     }
+*/
 
-}
+
+
