@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Drink App</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">Search by Name</string>
+    <string name="button_send">Search</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_display_message">Search Results</string>
+    <string name="title_activity_what_can_imake">What Can I Make?</string>
+    <string name="WCIMSearch">Add Ingredients</string>
+    <string name="WCIMButton">Add</string>
+</resources>
