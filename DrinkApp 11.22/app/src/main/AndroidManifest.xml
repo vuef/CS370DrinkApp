@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mycrosoft.drinkapp" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="DrinkApp"
+        android:theme="@style/AppTheme" >
+        <!-- Splash screen -->
+       <!-- <activity
+            android:name="mycrosoft.drinkapp.SplashScreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+        <activity
+            android:name="mycrosoft.drinkapp.Main"
+            android:label="DrinkApp"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+            <activity
+                android:name="mycrosoft.drinkapp.DrinkActivity">
+            </activity>
+
+        <activity
+            android:name=".Favorites"
+            android:label="@string/title_activity_favorites"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mycrosoft.drinkapp.Main" />
+        </activity>
+
+        <activity
+            android:name=".WhatCanIMakeActivity"
+            android:label="@string/title_activity_what_can_imake"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mycrosoft.drinkapp.Main" />
+        </activity>
+
+    </application>
+
+</manifest>
