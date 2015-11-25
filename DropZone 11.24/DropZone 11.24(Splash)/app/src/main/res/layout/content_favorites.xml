@@ -1,0 +1,23 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/InnerRelativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginTop="10dp"
+    android:paddingTop="55dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp" tools:context="mycrosoft.drinkapp.Main">
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Drinks"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/searchButton">
+
+    </ListView>
+
+
+</RelativeLayout>
