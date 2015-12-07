@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="mycrosoft.drinkapp.DrinkActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/drinkImage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    />
+    <ImageButton android:id="@+id/favorite_button"
+        android:layout_gravity="top|right"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/star"
+        android:background="#00ffffff"
+        android:onClick="onToggleStar"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/name"
+        android:layout_below="@+id/drinkImage"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/instructions"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:id="@+id/SingleDrinkIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instructions"
+        android:text="" />
+
+</LinearLayout>
