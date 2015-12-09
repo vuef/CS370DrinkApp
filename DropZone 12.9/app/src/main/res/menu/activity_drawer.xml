@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_favorites"
+            android:icon="@drawable/ic_favorites"
+            android:title="Favorites" />
+        <item android:id="@+id/nav_Search"
+            android:icon="@drawable/ic_search"
+            android:title="Search" />
+        <item android:id="@+id/nav_WCIM"
+            android:icon="@drawable/ic_wcim"
+            android:title="What Can I Make?" />
+        <item android:id="@+id/nav_random"
+            android:icon="@drawable/ic_random"
+            android:title="Random Recipe"/>
+    </group>
+
+
+</menu>
